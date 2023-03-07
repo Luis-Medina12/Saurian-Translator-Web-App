@@ -1,23 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
+import Translator from './components/Translator';
+import React, {useEffect, useState} from "react";
+import Footer from './components/Footer/Footer';
 
 function App() {
+
+  const [text, setText] = useState(null);
+  const [transalate, setTranslate] = useState(null);
+
+  const handleInputChange = (event) => {
+  const { name, value } = event.target;
+  setText(prevState => ({
+    ...prevState,
+    [name] : value
+  }));
+};
+
+const translateInput = () =>{
+  // setTranslate(prevState => ({
+  //   ...prevState,text
+  // }));
+  setTranslate(text.text);
+};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      {/* <header className="App-header">
+        Saurian-English Translator
+      </header> */}
+
+      <Header/>
+      
+
+      <body className = "App-body">
+        <p>Welcome to the saurian Translator! Here you can transalate sentances from English to Saurian and Saurian to English.</p>
+
+        <textarea placeholder='Enter your text here' name="text" className = "Input-box" onChange={handleInputChange}/>
+        <button onClick = {translateInput} className = "submit-button" >TRANSLATE</button>
+        <div >
+          {transalate!=null && <p className='result-window'>Translation:</p>}
+          {text!=null && <Translator text = {transalate} className='result-window'/>}
+        </div>
+      </body>
+      <Footer/>
     </div>
   );
 }
