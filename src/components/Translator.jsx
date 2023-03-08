@@ -1,7 +1,12 @@
 
+//TODO: Need to add noun recognition.
+
+//TODO: Need to add condition to translate between language translating
+
 const Translator = (originalText) =>{
 const org = originalText.text;
-    
+
+console.log(org);
 if(org!= null){
     return(
         <p className = "results" >{englishToSaurian(org)}</p>

@@ -34,14 +34,22 @@ const translateInput = () =>{
 
       <Header/>
       
-
+      {/* TODO: Need to add switch or button to switch between languages */}
       <body className = "App-body">
         <p>Welcome to the saurian Translator! Here you can translate sentances from English to Saurian and Saurian to English.</p>
 
         <textarea placeholder='Enter your text here' name="text" className = "Input-box" onChange={handleInputChange}/>
+        <div className = "interactables">
         <button onClick = {translateInput} className = "submit-button" >TRANSLATE</button>
-          {transalate!=null && <p className='result-window'>Translation:</p>}
-          {text!=null && <Translator text = {transalate} className='result-window'/>}
+        <label className="switch">
+          <input className="switch-input" type="checkbox" />
+          <span className="switch-label" data-on="Saurian" data-off="English"></span> 
+          <span className="switch-handle"></span> 
+        </label>
+        </div>
+
+          {transalate!=null && transalate!= "" && <p className='result-window'>Translation:</p>}
+          {text!=null && transalate!= "" && <Translator text = {transalate} className='result-window'/>}
       </body>
       <Footer/>
     </div>
