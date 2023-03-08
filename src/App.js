@@ -36,14 +36,12 @@ const translateInput = () =>{
       
 
       <body className = "App-body">
-        <p>Welcome to the saurian Translator! Here you can transalate sentances from English to Saurian and Saurian to English.</p>
+        <p>Welcome to the saurian Translator! Here you can translate sentances from English to Saurian and Saurian to English.</p>
 
         <textarea placeholder='Enter your text here' name="text" className = "Input-box" onChange={handleInputChange}/>
         <button onClick = {translateInput} className = "submit-button" >TRANSLATE</button>
-        <div >
           {transalate!=null && <p className='result-window'>Translation:</p>}
           {text!=null && <Translator text = {transalate} className='result-window'/>}
-        </div>
       </body>
       <Footer/>
     </div>

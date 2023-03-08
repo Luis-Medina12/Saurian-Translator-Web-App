@@ -4,7 +4,7 @@ const org = originalText.text;
     
 if(org!= null){
     return(
-        <p className = "results">{englishToSaurian(org)}</p>
+        <p className = "results" >{englishToSaurian(org)}</p>
     )
         
 }
@@ -37,8 +37,7 @@ const englishToSaurian = (original) =>{
     for(let i = 0; i<trans.length; i++){
         trans[i] = hashedEng.get(trans[i]);
     }
-
-    return trans;
+    return trans.join("");
 }
 
 const saurianToEnglish = (original) =>{
